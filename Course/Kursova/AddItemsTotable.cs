@@ -16,8 +16,6 @@ namespace Kursova
         public AddItemsTotable()
         {
             InitializeComponent();
-            ConfigureForm();
-
         }
         private void ConfigureForm()
         {
@@ -49,19 +47,6 @@ namespace Kursova
             }
             addTableButton.Text = "Змінити";
         }
-
-        private void addTableButton_Click(object sender, EventArgs e)
-        {
-            if (ValidateInput())
-            {
-                if (sportRadionButton.Checked)
-                    Data = CreateSportMotorcycle();
-                else
-                    Data = CreateTouringMotorcycle();
-                this.Close();
-            }
-            else Console.WriteLine("Виберіть тип мотоцикла!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
         private bool ValidateInput()
         {
             return sportRadionButton.Checked || travelRadioButton.Checked;
@@ -90,7 +75,37 @@ namespace Kursova
                 Convert.ToInt32(addperTextBox.Text)
             );
         }
-        private void sportRadioButton_CheckedChanged(object sender, EventArgs e)
+        private void AllowOnlyLetters(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void AllowOnlyDigits(KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+        private void addTableButton_Click_1(object sender, EventArgs e)
+        {
+            if (ValidateInputs())
+            {
+                if (ValidateInput())
+                {
+                    if (sportRadionButton.Checked)
+                        Data = CreateSportMotorcycle();
+                    else
+                        Data = CreateTouringMotorcycle();
+                    this.Close();
+                }
+                else Console.WriteLine("Виберіть тип мотоцикла!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void sportRadionButton_CheckedChanged(object sender, EventArgs e)
         {
             if (sportRadionButton.Checked)
                 travelRadioButton.Checked = false;
@@ -112,44 +127,72 @@ namespace Kursova
         {
             AllowOnlyLetters(e);
         }
-
         private void modelTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             AllowOnlyLetters(e);
         }
-
-        private void yearTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            AllowOnlyDigits(e);
-        }
-
         private void priceTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             AllowOnlyDigits(e);
         }
-
         private void capacityEngTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             AllowOnlyDigits(e);
         }
-        private void AllowOnlyLetters(KeyPressEventArgs e)
+        private void masTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            AllowOnlyDigits(e);
         }
-        private void AllowOnlyDigits(KeyPressEventArgs e)
+        private void addperTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            AllowOnlyDigits(e);
         }
-        private void AddItemsTotable_Load(object sender, EventArgs e)
+
+        private void AddItemsTotable_Load_1(object sender, EventArgs e)
         {
             addTableButton.Text = "Додати";
+            ConfigureForm();
             PopulateFields();
+        }
+
+        private bool ValidateInputs()
+        {
+            if (string.IsNullOrWhiteSpace(brendTextBox.Text) ||
+                string.IsNullOrWhiteSpace(modelTextBox.Text) ||
+                string.IsNullOrWhiteSpace(priceTextBox.Text) ||
+                string.IsNullOrWhiteSpace(capacityEngTextBox.Text) ||
+                string.IsNullOrWhiteSpace(masTextBox.Text) ||
+                string.IsNullOrWhiteSpace(addperTextBox.Text))
+            {
+                MessageBox.Show("Будь ласка, заповніть всі поля.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!double.TryParse(priceTextBox.Text, out double price) || price <= 0)
+            {
+                MessageBox.Show("Невірний формат ціни. Введіть коректне число.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!int.TryParse(capacityEngTextBox.Text, out int capacityEng) || capacityEng <= 0)
+            {
+                MessageBox.Show("Невірний формат об'єму двигуна. Введіть коректне ціле число.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!int.TryParse(masTextBox.Text, out int mas) || mas <= 0)
+            {
+                MessageBox.Show("Невірний формат маси. Введіть коректне ціле число.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!int.TryParse(addperTextBox.Text, out int addperValue))
+            {
+                MessageBox.Show("Невірний формат специфічного параметра. Введіть коректне ціле число.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            return true;
         }
     }
 }

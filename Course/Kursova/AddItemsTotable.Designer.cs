@@ -57,6 +57,7 @@
             addTableButton.TabIndex = 0;
             addTableButton.Text = "Додати";
             addTableButton.UseVisualStyleBackColor = false;
+            addTableButton.Click += addTableButton_Click_1;
             // 
             // brandLabel
             // 
@@ -127,6 +128,7 @@
             addperLabel.Size = new Size(198, 26);
             addperLabel.TabIndex = 7;
             addperLabel.Text = "Макс. швидкість";
+            addperLabel.Visible = false;
             // 
             // sportRadionButton
             // 
@@ -139,6 +141,7 @@
             sportRadionButton.TabStop = true;
             sportRadionButton.Text = "Спортивний";
             sportRadionButton.UseVisualStyleBackColor = true;
+            sportRadionButton.CheckedChanged += sportRadionButton_CheckedChanged;
             // 
             // travelRadioButton
             // 
@@ -151,6 +154,7 @@
             travelRadioButton.TabStop = true;
             travelRadioButton.Text = "Туристичний";
             travelRadioButton.UseVisualStyleBackColor = true;
+            travelRadioButton.CheckedChanged += travelRadioButton_CheckedChanged;
             // 
             // brendTextBox
             // 
@@ -159,6 +163,7 @@
             brendTextBox.Name = "brendTextBox";
             brendTextBox.Size = new Size(229, 35);
             brendTextBox.TabIndex = 10;
+            brendTextBox.KeyPress += brendTextBox_KeyPress;
             // 
             // modelTextBox
             // 
@@ -167,6 +172,7 @@
             modelTextBox.Name = "modelTextBox";
             modelTextBox.Size = new Size(229, 35);
             modelTextBox.TabIndex = 11;
+            modelTextBox.KeyPress += modelTextBox_KeyPress;
             // 
             // yearPicker
             // 
@@ -182,6 +188,7 @@
             priceTextBox.Name = "priceTextBox";
             priceTextBox.Size = new Size(229, 35);
             priceTextBox.TabIndex = 13;
+            priceTextBox.KeyPress += priceTextBox_KeyPress;
             // 
             // capacityEngTextBox
             // 
@@ -190,6 +197,7 @@
             capacityEngTextBox.Name = "capacityEngTextBox";
             capacityEngTextBox.Size = new Size(229, 35);
             capacityEngTextBox.TabIndex = 14;
+            capacityEngTextBox.KeyPress += capacityEngTextBox_KeyPress;
             // 
             // masTextBox
             // 
@@ -198,6 +206,7 @@
             masTextBox.Name = "masTextBox";
             masTextBox.Size = new Size(229, 35);
             masTextBox.TabIndex = 15;
+            masTextBox.KeyPress += masTextBox_KeyPress;
             // 
             // addperTextBox
             // 
@@ -206,6 +215,8 @@
             addperTextBox.Name = "addperTextBox";
             addperTextBox.Size = new Size(229, 35);
             addperTextBox.TabIndex = 16;
+            addperTextBox.Visible = false;
+            addperTextBox.KeyPress += addperTextBox_KeyPress;
             // 
             // AddItemsTotable
             // 
@@ -231,6 +242,7 @@
             Controls.Add(addTableButton);
             Name = "AddItemsTotable";
             Text = "AddItemsTotable";
+            Load += AddItemsTotable_Load_1;
             ResumeLayout(false);
             PerformLayout();
         }
