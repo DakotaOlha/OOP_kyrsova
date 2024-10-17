@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -60,9 +61,9 @@ namespace Kursova
         {
             AddMotorcycle(moto, dod);
         }
-        private void FileToolStripMenuItem_Click(object sender, EventArgs e)
+        /*private void FileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*OpenFileDialog openFileDialog = new OpenFileDialog
+            OpenFileDialog openFileDialog = new OpenFileDialog
             {
                 Filter = "(*.csv, *.txt)|*.csv;*.txt|Всі файли (*.*)|*.*",
                 Title = "Оберіть файл для завантаження"
@@ -114,14 +115,9 @@ namespace Kursova
             catch (Exception ex)
             {
                 MessageBox.Show("Помилка при читанні файлу: " + ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+            }
 
-        }
-        private void очиститиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            motoDataGrid.Rows.Clear();
-            motorcycles_list.Clear();
-        }
+    }*/
         //private void сортуватиToolStripMenuItem_Click(object sender, EventArgs e)
         //{
 
@@ -161,59 +157,30 @@ namespace Kursova
         //{
 
         //}
-        private void motoDataGrid_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            DataGridViewColumn column = motoDataGrid.Columns[e.ColumnIndex];
+        /*void UpdateDataGridRow(int rowIndex, Motorcycle updatedMotorcycle)
+        //{
+        //    DataGridViewRow row = motoDataGrid.Rows[rowIndex];
 
-            ListSortDirection direction = isSortedAscending ? ListSortDirection.Ascending : ListSortDirection.Descending;
+        //    motoDataGrid.Rows[rowIndex].Cells[0].Value = updatedMotorcycle.brand;
+        //    row.Cells[1].Value = updatedMotorcycle.model;
+        //    row.Cells[2].Value = updatedMotorcycle.year;
+        //    row.Cells[3].Value = updatedMotorcycle.price;
+        //    row.Cells[4].Value = updatedMotorcycle.capacityEng;
+        //    row.Cells[5].Value = updatedMotorcycle.mas;
 
-            motoDataGrid.Sort(column, direction);
-
-            isSortedAscending = !isSortedAscending;
-
-            column.HeaderCell.SortGlyphDirection = isSortedAscending
-                ? SortOrder.Ascending
-                : SortOrder.Descending;
-        }
-
-        private void motoDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
+        //    if (updatedMotorcycle is SportMotorcycle sportMotorcycle)
+        //    {
+        //        row.Cells[6].Value = sportMotorcycle.topSpeed;
+        //    }
+        //    else if (updatedMotorcycle is TouringMotorcycle touringMotorcycle)
             {
-                EditMotorcycleInList(e.RowIndex);
+                row.Cells[6].Value = touringMotorcycle.fuelConsumption;
             }
-            else
-            {
-                MessageBox.Show("Вибраний рядок не має відповідного мотоцикла у списку.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            /*void UpdateDataGridRow(int rowIndex, Motorcycle updatedMotorcycle)
-            //{
-            //    DataGridViewRow row = motoDataGrid.Rows[rowIndex];
-
-            //    motoDataGrid.Rows[rowIndex].Cells[0].Value = updatedMotorcycle.brand;
-            //    row.Cells[1].Value = updatedMotorcycle.model;
-            //    row.Cells[2].Value = updatedMotorcycle.year;
-            //    row.Cells[3].Value = updatedMotorcycle.price;
-            //    row.Cells[4].Value = updatedMotorcycle.capacityEng;
-            //    row.Cells[5].Value = updatedMotorcycle.mas;
-
-            //    if (updatedMotorcycle is SportMotorcycle sportMotorcycle)
-            //    {
-            //        row.Cells[6].Value = sportMotorcycle.topSpeed;
-            //    }
-            //    else if (updatedMotorcycle is TouringMotorcycle touringMotorcycle)
-                {
-                    row.Cells[6].Value = touringMotorcycle.fuelConsumption;
-                }
-            }*/
-        }
+        }*/
         private void EditMotorcycleInList(int rowIndex)
         {
-            AddItemsTotable editForm = new AddItemsTotable
-            {
-                Data = motorcycles_list[rowIndex]
-            };
+            AddItemsTotable editForm = new AddItemsTotable();
+            editForm.Data = motorcycles_list[rowIndex];
 
             editForm.ShowDialog();
             if (editForm.Data != null)
@@ -226,12 +193,6 @@ namespace Kursova
                 }
                 editForm.Data = null;
             }
-
-        }
-
-        private void пошукToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void LoadMotorcyclesFromFile(string filePath)
@@ -271,7 +232,7 @@ namespace Kursova
                 int.TryParse(data[5], out int mass) &&
                 int.TryParse(data[6], out int specificValue))
             {
-                if (specificValue < 10)
+                if (specificValue < 20)
                 {
                     return new TouringMotorcycle(data[0], data[1], year, price, capacityEng, mass, specificValue);
                 }
@@ -359,6 +320,38 @@ namespace Kursova
             }
         }
 
+        private void очиститиToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            motoDataGrid.Rows.Clear();
+            motorcycles_list.Clear();
+        }
+
+        private void motoDataGrid_ColumnHeaderMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewColumn column = motoDataGrid.Columns[e.ColumnIndex];
+
+            ListSortDirection direction = isSortedAscending ? ListSortDirection.Ascending : ListSortDirection.Descending;
+
+            motoDataGrid.Sort(column, direction);
+
+            isSortedAscending = !isSortedAscending;
+
+            column.HeaderCell.SortGlyphDirection = isSortedAscending
+                ? SortOrder.Ascending
+                : SortOrder.Descending;
+        }
+
+        private void motoDataGrid_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (motorcycles_list.Any())
+            {
+                EditMotorcycleInList(e.RowIndex);
+            }
+            else
+            {
+                MessageBox.Show("Вибраний рядок не має відповідного мотоцикла у списку.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         //private void пошукToolStripMenuItem_Click(object sender, EventArgs e)
         //{
