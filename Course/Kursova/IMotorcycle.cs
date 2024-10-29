@@ -18,7 +18,7 @@ namespace Kursova
         string GetInfo();
         void AddToTable(DataGridView d, int rowIndex);
         void ChangeRow(DataGridView d, int rowIndex);
-        void AddMotorcycleToDataGrid(DataGridView d);
+        void AddMotorcycleToDataGrid(int id, DataGridView d);
         void EditMotorcycleToDataGrid(DataGridView d, int rowIndex);
     }
 }

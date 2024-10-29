@@ -48,9 +48,10 @@ namespace Kursova
             D.Rows[rowIndex].Cells[5].Value = mas;
         }
 
-        public virtual void AddMotorcycleToDataGrid(DataGridView d)
+        public virtual void AddMotorcycleToDataGrid(int id, DataGridView d)
         {
             d.Rows.Add(
+                id,
                 brand,
                 model,
                 year,

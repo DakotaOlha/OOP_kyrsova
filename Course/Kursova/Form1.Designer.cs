@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             motoDataGrid = new DataGridView();
+            IdMoto = new DataGridViewTextBoxColumn();
             Brend = new DataGridViewTextBoxColumn();
             Model = new DataGridViewTextBoxColumn();
             Year = new DataGridViewTextBoxColumn();
@@ -37,12 +38,13 @@
             Mas = new DataGridViewTextBoxColumn();
             addper = new DataGridViewTextBoxColumn();
             menuStrip1 = new MenuStrip();
-            вихідToolStripMenuItem = new ToolStripMenuItem();
             файлToolStripMenuItem = new ToolStripMenuItem();
             зберегтиЯкToolStripMenuItem = new ToolStripMenuItem();
             відкритиЯкToolStripMenuItem = new ToolStripMenuItem();
             додатиToolStripMenuItem = new ToolStripMenuItem();
+            видалитиToolStripMenuItem = new ToolStripMenuItem();
             очиститиToolStripMenuItem = new ToolStripMenuItem();
+            вихідToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)motoDataGrid).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -50,7 +52,8 @@
             // motoDataGrid
             // 
             motoDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            motoDataGrid.Columns.AddRange(new DataGridViewColumn[] { Brend, Model, Year, Price, Eng_Capacity, Mas, addper });
+            motoDataGrid.Columns.AddRange(new DataGridViewColumn[] { IdMoto, Brend, Model, Year, Price, Eng_Capacity, Mas, addper });
+            motoDataGrid.EditMode = DataGridViewEditMode.EditProgrammatically;
             motoDataGrid.Location = new Point(48, 66);
             motoDataGrid.Name = "motoDataGrid";
             motoDataGrid.RowHeadersWidth = 62;
@@ -58,6 +61,13 @@
             motoDataGrid.TabIndex = 0;
             motoDataGrid.CellDoubleClick += motoDataGrid_CellDoubleClick_1;
             motoDataGrid.ColumnHeaderMouseClick += motoDataGrid_ColumnHeaderMouseClick_1;
+            // 
+            // IdMoto
+            // 
+            IdMoto.HeaderText = "Номер";
+            IdMoto.MinimumWidth = 8;
+            IdMoto.Name = "IdMoto";
+            IdMoto.Width = 150;
             // 
             // Brend
             // 
@@ -111,19 +121,12 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, додатиToolStripMenuItem, очиститиToolStripMenuItem, вихідToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, додатиToolStripMenuItem, видалитиToolStripMenuItem, очиститиToolStripMenuItem, вихідToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1301, 33);
             menuStrip1.TabIndex = 1;
             menuStrip1.Text = "menuStrip1";
-            // 
-            // вихідToolStripMenuItem
-            // 
-            вихідToolStripMenuItem.Name = "вихідToolStripMenuItem";
-            вихідToolStripMenuItem.Size = new Size(70, 29);
-            вихідToolStripMenuItem.Text = "Вихід";
-            вихідToolStripMenuItem.Click += вихідToolStripMenuItem_Click_1;
             // 
             // файлToolStripMenuItem
             // 
@@ -153,12 +156,26 @@
             додатиToolStripMenuItem.Text = "Додати";
             додатиToolStripMenuItem.Click += додатиToolStripMenuItem_Click_1;
             // 
+            // видалитиToolStripMenuItem
+            // 
+            видалитиToolStripMenuItem.Name = "видалитиToolStripMenuItem";
+            видалитиToolStripMenuItem.Size = new Size(103, 29);
+            видалитиToolStripMenuItem.Text = "Видалити";
+            видалитиToolStripMenuItem.Click += видалитиToolStripMenuItem_Click;
+            // 
             // очиститиToolStripMenuItem
             // 
             очиститиToolStripMenuItem.Name = "очиститиToolStripMenuItem";
             очиститиToolStripMenuItem.Size = new Size(104, 29);
             очиститиToolStripMenuItem.Text = "Очистити";
             очиститиToolStripMenuItem.Click += очиститиToolStripMenuItem_Click_1;
+            // 
+            // вихідToolStripMenuItem
+            // 
+            вихідToolStripMenuItem.Name = "вихідToolStripMenuItem";
+            вихідToolStripMenuItem.Size = new Size(70, 29);
+            вихідToolStripMenuItem.Text = "Вихід";
+            вихідToolStripMenuItem.Click += вихідToolStripMenuItem_Click_1;
             // 
             // Form1
             // 
@@ -170,6 +187,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load_1;
             ((System.ComponentModel.ISupportInitialize)motoDataGrid).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -187,6 +205,7 @@
         private ToolStripMenuItem відкритиЯкToolStripMenuItem;
         private ToolStripMenuItem додатиToolStripMenuItem;
         private ToolStripMenuItem очиститиToolStripMenuItem;
+        private DataGridViewTextBoxColumn IdMoto;
         private DataGridViewTextBoxColumn Brend;
         private DataGridViewTextBoxColumn Model;
         private DataGridViewTextBoxColumn Year;
@@ -194,5 +213,6 @@
         private DataGridViewTextBoxColumn Eng_Capacity;
         private DataGridViewTextBoxColumn Mas;
         private DataGridViewTextBoxColumn addper;
+        private ToolStripMenuItem видалитиToolStripMenuItem;
     }
 }

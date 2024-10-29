@@ -14,29 +14,66 @@ namespace Kursova
 {
     public partial class Form1 : Form
     {
-        List<Motorcycle> motorcycles_list = new List<Motorcycle>();
+        SortedList<int, Motorcycle> motorcycles_list = new SortedList<int, Motorcycle>();
         bool isSortedAscending = true;
 
-        public delegate void MotorcycleAddedDelegate(Motorcycle motorcycle, bool dod);
+        private int ID = 1;
 
-        public event MotorcycleAddedDelegate MotorcycleAdded;
+        public delegate void MotorcycleDeleteDelegate(Motorcycle motorcycle, bool rem);
+
+        public event MotorcycleDeleteDelegate MotorcycleDelete;
 
         public delegate void MotorcycleChangedDelegate(Motorcycle motorcycle);
 
         public event MotorcycleChangedDelegate MotorcycleChanged;
 
-        public void AddMotorcycle(Motorcycle motorcycle, bool dod)
+        public delegate void MotorcycleDelegate(Motorcycle motorcycle);
+
+        public delegate void EventHandlerDelegate(object sender, EventArgs e);
+
+        public void Form_LoadHandler(object sender, EventArgs e)
         {
-            motorcycles_list.Add(motorcycle);
-            motorcycle.AddMotorcycleToDataGrid(motoDataGrid);
-            MotorcycleAdded?.Invoke(motorcycle, dod);
+            MessageBox.Show("Форма завантажена");
         }
 
-        private void OnMotorcycleAdded(Motorcycle motorcycle, bool dod)
+        public void DynamicMethodSelector(Motorcycle motorcycle)
         {
-            if (!dod)
+            MotorcycleDelegate motorcycleAction;
+
+            if (motorcycle is SportMotorcycle)
             {
-                MessageBox.Show($"{motorcycle.brand} {motorcycle.model} успішно додано!");
+                motorcycleAction = ProcessChangingSportMotorcycle;
+            }
+            else
+            {
+                motorcycleAction = ProcessChangingTouringMotorcycle;
+            }
+
+            motorcycleAction?.Invoke(motorcycle);
+        }
+
+        public void ProcessChangingSportMotorcycle(Motorcycle motorcycle)
+        {
+            MessageBox.Show("Спортивний мотоцикл змінено!");
+        }
+
+        public void ProcessChangingTouringMotorcycle(Motorcycle motorcycle)
+        {
+            MessageBox.Show("Туристичний мотоцикл змінено!");
+        }
+
+        public void AddMotorcycle(Motorcycle motorcycle)
+        {
+            motorcycles_list.Add(ID, motorcycle);
+            motorcycle.AddMotorcycleToDataGrid(ID, motoDataGrid);
+            ID++;
+        }
+
+        private void OnMotorcycleDelete(Motorcycle motorcycle, bool rem)
+        {
+            if (rem)
+            {
+                MessageBox.Show($"{motorcycle.brand} {motorcycle.model} успішно видалено!");
             }
         }
 
@@ -45,21 +82,19 @@ namespace Kursova
             MessageBox.Show($"{motorcycle.brand} {motorcycle.model} успішно змінено!");
         }
 
+        MotorcycleDelegate ChangeAs;
         public Form1()
         {
             InitializeComponent();
-            MotorcycleAdded += OnMotorcycleAdded;
+            MotorcycleDelete += OnMotorcycleDelete;
             MotorcycleChanged += OnMotorcycleChanged;
-        }
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            this.Text = "";
-            this.ShowIcon = false;
+            ChangeAs = DynamicMethodSelector;
+            this.Load += new EventHandler(Form_LoadHandler);
         }
 
-        public void AddMotorcycleToList(Motorcycle moto, bool dod)
+        public void AddMotorcycleToList(Motorcycle moto)
         {
-            AddMotorcycle(moto, dod);
+            AddMotorcycle(moto);
         }
         /*private void FileToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -179,17 +214,22 @@ namespace Kursova
         }*/
         private void EditMotorcycleInList(int rowIndex)
         {
-            AddItemsTotable editForm = new AddItemsTotable();
-            editForm.Data = motorcycles_list[rowIndex];
+            int motorcycleId = (int)motoDataGrid.Rows[rowIndex].Cells[0].Value;
+
+            AddItemsTotable editForm = new AddItemsTotable
+            {
+                Data = motorcycles_list[motorcycleId]
+            };
 
             editForm.ShowDialog();
+
             if (editForm.Data != null)
             {
-                motorcycles_list[rowIndex] = editForm.Data;
                 editForm.Data.EditMotorcycleToDataGrid(motoDataGrid, rowIndex);
                 if (editForm.Data != motorcycles_list[rowIndex])
                 {
                     MotorcycleChanged?.Invoke(editForm.Data);
+                    ChangeAs?.Invoke(editForm.Data);
                 }
                 editForm.Data = null;
             }
@@ -208,7 +248,7 @@ namespace Kursova
                     Motorcycle motorcycle = CreateMotorcycle(data);
                     if (motorcycle != null)
                     {
-                        AddMotorcycleToList(motorcycle, true);
+                        AddMotorcycleToList(motorcycle);
                     }
                 }
                 MessageBox.Show("Дані з файлу успішно додано!");
@@ -250,9 +290,11 @@ namespace Kursova
             {
                 using (StreamWriter writer = new StreamWriter(filePath))
                 {
-                    foreach (Motorcycle moto in motorcycles_list)
+                    foreach (KeyValuePair<int, Motorcycle> entry in motorcycles_list)
                     {
+                        Motorcycle moto = entry.Value;
                         string motorcycleData = $"{moto.brand},{moto.model},{moto.year},{moto.price},{moto.capacityEng},{moto.mas}";
+
                         if (moto is SportMotorcycle sportMotorcycle)
                         {
                             motorcycleData += $",{sportMotorcycle.topSpeed}";
@@ -315,7 +357,7 @@ namespace Kursova
             form.ShowDialog();
             if (form.Data != null)
             {
-                AddMotorcycleToList(form.Data, false);
+                AddMotorcycleToList(form.Data);
                 form.Data = null;
             }
         }
@@ -343,7 +385,7 @@ namespace Kursova
 
         private void motoDataGrid_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (motorcycles_list.Any())
+            if (motorcycles_list.Any() && e.RowIndex < motorcycles_list.Count() && e.RowIndex > 0)
             {
                 EditMotorcycleInList(e.RowIndex);
             }
@@ -353,6 +395,28 @@ namespace Kursova
             }
         }
 
+        private void видалитиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (motoDataGrid.SelectedRows.Count > 0)
+            {
+                int rowIndex = motoDataGrid.SelectedRows[0].Index;
+                int motorcycleId = (int)motoDataGrid.Rows[rowIndex].Cells[0].Value;
+                motorcycles_list.Remove(motorcycleId);
+                motoDataGrid.Rows.RemoveAt(rowIndex);
+                MotorcycleDelete?.Invoke(motorcycles_list[rowIndex], true);
+            }
+            else
+            {
+                MessageBox.Show("Виберіть рядок для видалення.", "Delete Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Form1_Load_1(object sender, EventArgs e)
+        {
+            this.Text = "";
+            this.ShowIcon = false;
+        }
+
         //private void пошукToolStripMenuItem_Click(object sender, EventArgs e)
         //{
         //    FindItems findform = new FindItems();
@@ -360,5 +424,3 @@ namespace Kursova
         //}
     }
 }
-
-

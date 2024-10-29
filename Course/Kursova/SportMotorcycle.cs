@@ -24,9 +24,10 @@ namespace Kursova
             return base.GetInfo() + $", Top Speed: {topSpeed} km/h";
         }
 
-        public override void AddMotorcycleToDataGrid(DataGridView d)
+        public override void AddMotorcycleToDataGrid(int id, DataGridView d)
         {
             d.Rows.Add(
+                id,
                 brand,
                 model,
                 year,
@@ -42,13 +43,13 @@ namespace Kursova
         {
             DataGridViewRow row = d.Rows[rowIndex];
 
-            row.Cells[0].Value = brand;
-            row.Cells[1].Value = model;
-            row.Cells[2].Value = year;
-            row.Cells[3].Value = price;
-            row.Cells[4].Value = capacityEng;
-            row.Cells[5].Value = mas;
-            row.Cells[6].Value = topSpeed;
+            row.Cells[1].Value = brand;
+            row.Cells[2].Value = model;
+            row.Cells[3].Value = year;
+            row.Cells[4].Value = price;
+            row.Cells[5].Value = capacityEng;
+            row.Cells[6].Value = mas;
+            row.Cells[7].Value = topSpeed;
         }
 
     }
