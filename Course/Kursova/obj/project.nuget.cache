@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "hzLcbu0hiPM=",
+  "dgSpecHash": "Vw/jCWtc4cs=",
   "success": true,
   "projectFilePath": "D:\\My files\\3 course\\ООП\\Code\\Course\\Kursova\\Kursova.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Dakota\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

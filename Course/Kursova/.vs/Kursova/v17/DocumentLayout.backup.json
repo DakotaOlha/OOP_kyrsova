@@ -11,16 +11,32 @@
       "RelativeMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|solutionrelative:form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|d:\\my files\\3 course\\\u043E\u043E\u043F\\code\\course\\kursova\\models\\motorcycleadditional.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|solutionrelative:models\\motorcycleadditional.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|d:\\my files\\3 course\\\u043E\u043E\u043F\\code\\course\\kursova\\models\\stringextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|solutionrelative:models\\stringextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|d:\\my files\\3 course\\\u043E\u043E\u043F\\code\\course\\kursova\\models\\ownerextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|solutionrelative:models\\ownerextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|d:\\my files\\3 course\\\u043E\u043E\u043F\\code\\course\\kursova\\models\\motorcycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|solutionrelative:models\\motorcycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|d:\\my files\\3 course\\\u043E\u043E\u043F\\code\\course\\kursova\\models\\owner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|solutionrelative:models\\owner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|d:\\my files\\3 course\\\u043E\u043E\u043F\\code\\course\\kursova\\datagridviewextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|solutionrelative:datagridviewextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|d:\\my files\\3 course\\\u043E\u043E\u043F\\code\\course\\kursova\\additemstotable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|solutionrelative:additemstotable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|d:\\my files\\3 course\\\u043E\u043E\u043F\\code\\course\\kursova\\imotorcycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|solutionrelative:imotorcycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|d:\\my files\\3 course\\\u043E\u043E\u043F\\code\\course\\kursova\\motorcycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|solutionrelative:motorcycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|d:\\my files\\3 course\\\u043E\u043E\u043F\\code\\course\\kursova\\touringmotorcycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -29,6 +45,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|d:\\my files\\3 course\\\u043E\u043E\u043F\\code\\course\\kursova\\sportmotorcycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|solutionrelative:sportmotorcycle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|d:\\my files\\3 course\\\u043E\u043E\u043F\\code\\course\\kursova\\models\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|solutionrelative:models\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6017D0FC-CAC9-46D2-87BA-851B685F8C1C}|Kursova.csproj|D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\additemstotable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
@@ -42,20 +62,97 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 5,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OwnerExtensions.cs",
+              "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Models\\OwnerExtensions.cs",
+              "RelativeDocumentMoniker": "Models\\OwnerExtensions.cs",
+              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Models\\OwnerExtensions.cs",
+              "RelativeToolTip": "Models\\OwnerExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T06:46:46.961Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Owner.cs",
+              "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Models\\Owner.cs",
+              "RelativeDocumentMoniker": "Models\\Owner.cs",
+              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Models\\Owner.cs",
+              "RelativeToolTip": "Models\\Owner.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAkwBAAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T18:35:54.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MotorcycleAdditional.cs",
+              "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Models\\MotorcycleAdditional.cs",
+              "RelativeDocumentMoniker": "Models\\MotorcycleAdditional.cs",
+              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Models\\MotorcycleAdditional.cs",
+              "RelativeToolTip": "Models\\MotorcycleAdditional.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAA1wB0AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T18:45:07.209Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Motorcycle.cs",
+              "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Models\\Motorcycle.cs",
+              "RelativeDocumentMoniker": "Models\\Motorcycle.cs",
+              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Models\\Motorcycle.cs",
+              "RelativeToolTip": "Models\\Motorcycle.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwA0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T18:34:54.28Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AddItemsTotable.cs",
+              "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\AddItemsTotable.cs",
+              "RelativeDocumentMoniker": "AddItemsTotable.cs",
+              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\AddItemsTotable.cs",
+              "RelativeToolTip": "AddItemsTotable.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAA6wBUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-16T12:44:09.632Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Form1.cs",
               "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Form1.cs*",
-              "RelativeToolTip": "Form1.cs*",
-              "ViewState": "AgIAACAAAAAAAAAAAAAgwEkAAAAQAAAAAAAAAA==",
+              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Form1.cs",
+              "RelativeToolTip": "Form1.cs",
+              "ViewState": "AgIAACQCAAAAAAAAAAAIwCcCAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T08:16:43.225Z",
-              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DataGridViewExtensions.cs",
+              "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\DataGridViewExtensions.cs",
+              "RelativeDocumentMoniker": "DataGridViewExtensions.cs",
+              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\DataGridViewExtensions.cs",
+              "RelativeToolTip": "DataGridViewExtensions.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T18:01:41.656Z",
               "EditorCaption": ""
             },
             {
@@ -64,83 +161,71 @@
               "Title": "Form1.cs [Design]",
               "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Form1.cs",
               "RelativeDocumentMoniker": "Form1.cs",
-              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Form1.cs [Design]*",
-              "RelativeToolTip": "Form1.cs [Design]*",
+              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Form1.cs [Design]",
+              "RelativeToolTip": "Form1.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T08:11:20.91Z",
+              "WhenOpened": "2024-11-02T16:14:04.038Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Motorcycle.cs",
-              "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Motorcycle.cs",
-              "RelativeDocumentMoniker": "Motorcycle.cs",
-              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Motorcycle.cs",
-              "RelativeToolTip": "Motorcycle.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAsAAAAeAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "StringExtensions.cs",
+              "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Models\\StringExtensions.cs",
+              "RelativeDocumentMoniker": "Models\\StringExtensions.cs",
+              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Models\\StringExtensions.cs",
+              "RelativeToolTip": "Models\\StringExtensions.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T12:42:10.707Z"
+              "WhenOpened": "2024-11-07T06:58:13.864Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "TouringMotorcycle.cs",
               "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\TouringMotorcycle.cs",
               "RelativeDocumentMoniker": "TouringMotorcycle.cs",
               "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\TouringMotorcycle.cs",
               "RelativeToolTip": "TouringMotorcycle.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAqwDAAAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T12:43:39.023Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IMotorcycle.cs",
-              "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\IMotorcycle.cs",
-              "RelativeDocumentMoniker": "IMotorcycle.cs",
-              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\IMotorcycle.cs",
-              "RelativeToolTip": "IMotorcycle.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAgwBQAAAAtAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T08:17:59.517Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AddItemsTotable.cs",
-              "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\AddItemsTotable.cs",
-              "RelativeDocumentMoniker": "AddItemsTotable.cs",
-              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\AddItemsTotable.cs",
-              "RelativeToolTip": "AddItemsTotable.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABIAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T12:44:09.632Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "SportMotorcycle.cs",
               "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\SportMotorcycle.cs",
               "RelativeDocumentMoniker": "SportMotorcycle.cs",
               "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\SportMotorcycle.cs",
               "RelativeToolTip": "SportMotorcycle.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAcwC4AAAAnAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAswAoAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T12:43:06.125Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
+              "Title": "Brand.cs",
+              "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Models\\Brand.cs",
+              "RelativeDocumentMoniker": "Models\\Brand.cs",
+              "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\Models\\Brand.cs",
+              "RelativeToolTip": "Models\\Brand.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAiwAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-06T18:36:48.827Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "AddItemsTotable.cs [Design]",
               "DocumentMoniker": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\AddItemsTotable.cs",
               "RelativeDocumentMoniker": "AddItemsTotable.cs",
               "ToolTip": "D:\\My files\\3 course\\\u041E\u041E\u041F\\Code\\Course\\Kursova\\AddItemsTotable.cs [Design]",
               "RelativeToolTip": "AddItemsTotable.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T13:15:35.554Z"
+              "WhenOpened": "2024-11-02T16:28:06.728Z"
             }
           ]
         }

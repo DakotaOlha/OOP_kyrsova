@@ -1,0 +1,116 @@
+[
+  {
+    "$type": "Kursova.SportMotorcycle, Kursova",
+    "topSpeed": 299,
+    "motoBrand": {
+      "Owner_name": "Yamaha",
+      "Country": "Japan"
+    },
+    "model": "YZF-R1",
+    "year": 2020,
+    "price": 20000.0,
+    "capacityEng": 998,
+    "mas": 200
+  },
+  {
+    "$type": "Kursova.TouringMotorcycle, Kursova",
+    "fuelConsumption": 5.4,
+    "motoBrand": {
+      "Owner_name": "BMW",
+      "Country": "Germany"
+    },
+    "model": "R1250GS",
+    "year": 2021,
+    "price": 22000.0,
+    "capacityEng": 1254,
+    "mas": 250
+  },
+  {
+    "motoBrand": {
+      "Owner_name": "Kawasaki",
+      "Country": "Japan"
+    },
+    "model": "Ninja ZX-10R",
+    "year": 2019,
+    "price": 23000.0,
+    "capacityEng": 998,
+    "mas": 210
+  },
+  {
+    "motoBrand": {
+      "Owner_name": "Yamaha",
+      "Country": "Japan"
+    },
+    "model": "MT-03",
+    "year": 2022,
+    "price": 7000.0,
+    "capacityEng": 321,
+    "mas": 168
+  },
+  {
+    "motoBrand": {
+      "Owner_name": "Honda",
+      "Country": "Japan"
+    },
+    "model": "CB500F",
+    "year": 2020,
+    "price": 6000.0,
+    "capacityEng": 471,
+    "mas": 189
+  },
+  {
+    "motoBrand": {
+      "Owner_name": "KTM",
+      "Country": "Austria"
+    },
+    "model": "390 Duke",
+    "year": 2021,
+    "price": 5500.0,
+    "capacityEng": 373,
+    "mas": 149
+  },
+  {
+    "motoBrand": {
+      "Owner_name": "Мінськ",
+      "Country": "Білорусь"
+    },
+    "model": "Мінськ-125",
+    "year": 2020,
+    "price": 2500.0,
+    "capacityEng": 125,
+    "mas": 100
+  },
+  {
+    "motoBrand": {
+      "Owner_name": "Suzuki",
+      "Country": "Japan"
+    },
+    "model": "GSX-R750",
+    "year": 2019,
+    "price": 15000.0,
+    "capacityEng": 750,
+    "mas": 190
+  },
+  {
+    "motoBrand": {
+      "Owner_name": "Ducati",
+      "Country": "Italy"
+    },
+    "model": "Panigale V2",
+    "year": 2021,
+    "price": 22000.0,
+    "capacityEng": 955,
+    "mas": 200
+  },
+  {
+    "motoBrand": {
+      "Owner_name": "Honda",
+      "Country": "Japan"
+    },
+    "model": "Gold Wing",
+    "year": 2021,
+    "price": 28000.0,
+    "capacityEng": 1833,
+    "mas": 390
+  }
+]

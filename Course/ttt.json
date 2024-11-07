@@ -1,0 +1,19 @@
+[
+  {
+    "$type": "Kursova.SportMotorcycle, Kursova",
+    "topSpeed": 299,
+    "MotoBrand": {
+      "MotoOwner": {
+        "Name": "Yamaha",
+        "Address": "Proskyrivsk",
+        "Motorcycles": []
+      },
+      "Country": "Japan"
+    },
+    "model": "YZFR",
+    "year": 2020,
+    "price": 20000.0,
+    "capacityEng": 998,
+    "mas": 200
+  }
+]

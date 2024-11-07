@@ -9,6 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.Json;
+using Newtonsoft.Json;
+using Kursova.Models;
 
 namespace Kursova
 {
@@ -65,7 +68,7 @@ namespace Kursova
         public void AddMotorcycle(Motorcycle motorcycle)
         {
             motorcycles_list.Add(ID, motorcycle);
-            motorcycle.AddMotorcycleToDataGrid(ID, motoDataGrid);
+            motoDataGrid.AddMoto(motorcycle, ID);
             ID++;
         }
 
@@ -73,13 +76,13 @@ namespace Kursova
         {
             if (rem)
             {
-                MessageBox.Show($"{motorcycle.brand} {motorcycle.model} успішно видалено!");
+                MessageBox.Show($"{motorcycle.MotoBrand} {motorcycle.model} успішно видалено!");
             }
         }
 
         private void OnMotorcycleChanged(Motorcycle motorcycle)
         {
-            MessageBox.Show($"{motorcycle.brand} {motorcycle.model} успішно змінено!");
+            MessageBox.Show($"{motorcycle.MotoBrand} {motorcycle.model} успішно змінено!");
         }
 
         MotorcycleDelegate ChangeAs;
@@ -216,22 +219,27 @@ namespace Kursova
         {
             int motorcycleId = (int)motoDataGrid.Rows[rowIndex].Cells[0].Value;
 
-            AddItemsTotable editForm = new AddItemsTotable
+            if (motorcycles_list.ContainsKey(motorcycleId))
             {
-                Data = motorcycles_list[motorcycleId]
-            };
-
-            editForm.ShowDialog();
-
-            if (editForm.Data != null)
-            {
-                editForm.Data.EditMotorcycleToDataGrid(motoDataGrid, rowIndex);
-                if (editForm.Data != motorcycles_list[rowIndex])
+                AddItemsTotable editForm = new AddItemsTotable
                 {
-                    MotorcycleChanged?.Invoke(editForm.Data);
-                    ChangeAs?.Invoke(editForm.Data);
+                    Data = motorcycles_list[motorcycleId]
+                };
+
+                editForm.ShowDialog();
+
+                if (editForm.Data != null)
+                {
+                    motoDataGrid.EditMoto(editForm.Data, rowIndex);
+
+                    if (editForm.Data != motorcycles_list[motorcycleId])
+                    {
+                        motorcycles_list[motorcycleId] = editForm.Data;
+                        MotorcycleChanged?.Invoke(editForm.Data);
+                        ChangeAs?.Invoke(editForm.Data);
+                    }
+                    editForm.Data = new Motorcycle();
                 }
-                editForm.Data = null;
             }
         }
 
@@ -259,6 +267,38 @@ namespace Kursova
             }
         }
 
+        private void LoadMotorcyclesFromJsonFile(string filePath)
+        {
+            var json = File.ReadAllText(filePath);
+            var settings = new JsonSerializerSettings
+            {
+                TypeNameHandling = TypeNameHandling.Auto
+            };
+
+            var motorcycles = JsonConvert.DeserializeObject<List<Motorcycle>>(json, settings);
+
+            foreach (var motorcycle in motorcycles)
+            {
+                if (motorcycle is SportMotorcycle sportMotorcycle)
+                {
+                    motoDataGrid.AddMoto(sportMotorcycle, ID);
+                }
+                else if (motorcycle is TouringMotorcycle touringMotorcycle)
+                {
+                    motoDataGrid.AddMoto(touringMotorcycle, ID);
+                }
+                else
+                {
+                    motoDataGrid.AddMoto(motorcycle, ID);
+                }
+
+                motorcycles_list.Add(ID, motorcycle);
+                ID++;
+            }
+        }
+
+
+
         private string[] ParseLine(string line)
         {
             return line.Split(',').Select(d => d.Trim()).ToArray();
@@ -266,19 +306,24 @@ namespace Kursova
 
         private Motorcycle CreateMotorcycle(string[] data)
         {
-            if (data.Length == 7 && int.TryParse(data[2], out int year) &&
-                double.TryParse(data[3], out double price) &&
-                int.TryParse(data[4], out int capacityEng) &&
-                int.TryParse(data[5], out int mass) &&
-                int.TryParse(data[6], out int specificValue))
+            if (data.Length == 8 && int.TryParse(data[4], out int year) &&
+                double.TryParse(data[5], out double price) &&
+                int.TryParse(data[6], out int capacityEng) &&
+                int.TryParse(data[7], out int mass) &&
+                int.TryParse(data[8], out int specificValue))
             {
+                Owner owner = new Owner
+                {
+                    Name = data[0],
+                    Address = data[1],
+                };
                 if (specificValue < 20)
                 {
-                    return new TouringMotorcycle(data[0], data[1], year, price, capacityEng, mass, specificValue);
+                    return new TouringMotorcycle(owner, data[2], data[3], year, price, capacityEng, mass, specificValue);
                 }
                 else
                 {
-                    return new SportMotorcycle(data[0], data[1], year, price, capacityEng, mass, specificValue);
+                    return new SportMotorcycle(owner, data[1], data[2], year, price, capacityEng, mass, specificValue);
                 }
             }
             return null;
@@ -293,7 +338,7 @@ namespace Kursova
                     foreach (KeyValuePair<int, Motorcycle> entry in motorcycles_list)
                     {
                         Motorcycle moto = entry.Value;
-                        string motorcycleData = $"{moto.brand},{moto.model},{moto.year},{moto.price},{moto.capacityEng},{moto.mas}";
+                        string motorcycleData = $"{moto.MotoBrand.MotoOwner.Name},{moto.MotoBrand.MotoOwner.Address}.{moto.model},{moto.year},{moto.price},{moto.capacityEng},{moto.mas}";
 
                         if (moto is SportMotorcycle sportMotorcycle)
                         {
@@ -314,6 +359,76 @@ namespace Kursova
             }
         }
 
+        private void SaveMotorcyclesToJson(string filePath)
+        {
+            List<Motorcycle> motorcycles = new List<Motorcycle>();
+
+            foreach (DataGridViewRow row in motoDataGrid.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                var cellValue = row.Cells["addper"].Value;
+                double numericValue = 0;
+                bool isNumeric = cellValue != null && double.TryParse(cellValue.ToString(), out numericValue);
+
+                if (isNumeric)
+                {
+                    if (numericValue < 50)
+                    {
+                        var motorcycle = new TouringMotorcycle
+                        {
+                            MotoBrand = new Brand
+                            {
+                                MotoOwner = new Owner
+                                {
+                                    Name = row.Cells["Owner_name"].Value.ToString(),
+                                    Address = row.Cells["Address"].Value.ToString(),
+                                },
+                                Country = row.Cells["Country"].Value.ToString()
+                            },
+                            model = row.Cells["Model"].Value.ToString(),
+                            year = Convert.ToInt32(row.Cells["Year"].Value),
+                            price = Convert.ToDouble(row.Cells["Price"].Value),
+                            capacityEng = Convert.ToInt32(row.Cells["Eng_Capacity"].Value),
+                            mas = Convert.ToInt32(row.Cells["Mas"].Value),
+                            fuelConsumption = numericValue
+                        };
+                        motorcycles.Add(motorcycle);
+                    }
+                    else
+                    {
+                        var motorcycle = new SportMotorcycle
+                        {
+                            MotoBrand = new Brand
+                            {
+                                MotoOwner = new Owner
+                                {
+                                    Name = row.Cells["Owner_name"].Value.ToString(),
+                                    Address = row.Cells["Address"].Value.ToString(),
+                                },
+                                Country = row.Cells["Country"].Value.ToString()
+                            },
+                            model = row.Cells["Model"].Value.ToString(),
+                            year = Convert.ToInt32(row.Cells["Year"].Value),
+                            price = Convert.ToDouble(row.Cells["Price"].Value),
+                            capacityEng = Convert.ToInt32(row.Cells["Eng_Capacity"].Value),
+                            mas = Convert.ToInt32(row.Cells["Mas"].Value),
+                            topSpeed = (int)numericValue
+                        };
+                        motorcycles.Add(motorcycle);
+                    }
+
+                    var settings = new JsonSerializerSettings
+                    {
+                        TypeNameHandling = TypeNameHandling.Auto
+                    };
+
+                    var json = JsonConvert.SerializeObject(motorcycles_list.Values.ToList(), Formatting.Indented, settings);
+                    File.WriteAllText(filePath, json);
+                }
+            }
+        }
+
         private void вихідToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             this.Close();
@@ -323,14 +438,21 @@ namespace Kursova
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
-                Filter = "DOT files (*.dot)|*.dot|All files (*.*)|*.*",
+                Filter = "JSON files (*.json)|*.json|DOT files (*.dot)|*.dot|All files (*.*)|*.*",
                 Title = "Зберегти файл"
             };
 
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string filePath = saveFileDialog.FileName;
-                SaveMotorcyclesToDotFile(filePath);
+                if (filePath.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
+                {
+                    SaveMotorcyclesToJson(filePath);
+                }
+                else
+                {
+                    SaveMotorcyclesToDotFile(filePath);
+                }
             }
         }
 
@@ -338,7 +460,7 @@ namespace Kursova
         {
             OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Filter = "(*.csv, *.txt, *.dot)|*.csv;*.txt;*.dot|Всі файли (*.*)|*.*",
+                Filter = "JSON files (*.json)|*.json|DOT files (*.dot)|*.dot|All files (*.*)|*.*",
                 Title = "Оберіть файл для завантаження"
             };
 
@@ -348,7 +470,14 @@ namespace Kursova
             }
 
             string filePath = openFileDialog.FileName;
-            LoadMotorcyclesFromFile(filePath);
+            if (filePath.EndsWith(".json", StringComparison.OrdinalIgnoreCase))
+            {
+                LoadMotorcyclesFromJsonFile(filePath);
+            }
+            else
+            {
+                LoadMotorcyclesFromFile(filePath);
+            }
         }
 
         private void додатиToolStripMenuItem_Click_1(object sender, EventArgs e)
@@ -366,6 +495,7 @@ namespace Kursova
         {
             motoDataGrid.Rows.Clear();
             motorcycles_list.Clear();
+            ID = 1;
         }
 
         private void motoDataGrid_ColumnHeaderMouseClick_1(object sender, DataGridViewCellMouseEventArgs e)
@@ -385,7 +515,7 @@ namespace Kursova
 
         private void motoDataGrid_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            if (motorcycles_list.Any() && e.RowIndex < motorcycles_list.Count() && e.RowIndex > 0)
+            if (motorcycles_list.Any() && e.RowIndex < motorcycles_list.Count() && e.RowIndex >= 0)
             {
                 EditMotorcycleInList(e.RowIndex);
             }
@@ -415,6 +545,27 @@ namespace Kursova
         {
             this.Text = "";
             this.ShowIcon = false;
+        }
+
+        private void чиРікЄТеперішнімToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if(motoDataGrid.SelectedRows.Count > 0) 
+            {
+                int selectedYear = Convert.ToInt32(motoDataGrid.SelectedRows[0].Cells["Year"].Value);
+
+                if (selectedYear == DateTime.Now.Year)
+                {
+                    MessageBox.Show("Це поточний рік");
+                }
+                else
+                {
+                    MessageBox.Show("Це не поточний рік");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Будь ласка, виберіть рядок.");
+            }
         }
 
         //private void пошукToolStripMenuItem_Click(object sender, EventArgs e)

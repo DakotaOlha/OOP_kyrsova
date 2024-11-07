@@ -3,6 +3,8 @@ D:\My files\3 course\ООП\Code\Course\Kursova\bin\Debug\net8.0-windows\Kursova
 D:\My files\3 course\ООП\Code\Course\Kursova\bin\Debug\net8.0-windows\Kursova.runtimeconfig.json
 D:\My files\3 course\ООП\Code\Course\Kursova\bin\Debug\net8.0-windows\Kursova.dll
 D:\My files\3 course\ООП\Code\Course\Kursova\bin\Debug\net8.0-windows\Kursova.pdb
+D:\My files\3 course\ООП\Code\Course\Kursova\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+D:\My files\3 course\ООП\Code\Course\Kursova\obj\Debug\net8.0-windows\Kursova.csproj.AssemblyReference.cache
 D:\My files\3 course\ООП\Code\Course\Kursova\obj\Debug\net8.0-windows\Kursova.AddItemsTotable.resources
 D:\My files\3 course\ООП\Code\Course\Kursova\obj\Debug\net8.0-windows\Kursova.Form1.resources
 D:\My files\3 course\ООП\Code\Course\Kursova\obj\Debug\net8.0-windows\Kursova.Properties.Resources.resources
@@ -12,8 +14,11 @@ D:\My files\3 course\ООП\Code\Course\Kursova\obj\Debug\net8.0-windows\Kursova
 D:\My files\3 course\ООП\Code\Course\Kursova\obj\Debug\net8.0-windows\Kursova.AssemblyInfo.cs
 D:\My files\3 course\ООП\Code\Course\Kursova\obj\Debug\net8.0-windows\Kursova.csproj.CoreCompileInputs.cache
 D:\My files\3 course\ООП\Code\Course\Kursova\obj\Debug\net8.0-windows\Kursova.sourcelink.json
+D:\My files\3 course\ООП\Code\Course\Kursova\obj\Debug\net8.0-windows\Kursova.csproj.Up2Date
 D:\My files\3 course\ООП\Code\Course\Kursova\obj\Debug\net8.0-windows\Kursova.dll
 D:\My files\3 course\ООП\Code\Course\Kursova\obj\Debug\net8.0-windows\refint\Kursova.dll
 D:\My files\3 course\ООП\Code\Course\Kursova\obj\Debug\net8.0-windows\Kursova.pdb
 D:\My files\3 course\ООП\Code\Course\Kursova\obj\Debug\net8.0-windows\Kursova.genruntimeconfig.cache
 D:\My files\3 course\ООП\Code\Course\Kursova\obj\Debug\net8.0-windows\ref\Kursova.dll
+D:\My files\3 course\ООП\Code\Course\Kursova\bin\Debug\net8.0-windows\MotoLibrary.dll
+D:\My files\3 course\ООП\Code\Course\Kursova\bin\Debug\net8.0-windows\MotoLibrary.pdb

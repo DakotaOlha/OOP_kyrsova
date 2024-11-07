@@ -1,0 +1,12 @@
+D:\My files\3 course\ООП\Code\Course\MotoLibrary\bin\Debug\net8.0\MotoLibrary.deps.json
+D:\My files\3 course\ООП\Code\Course\MotoLibrary\bin\Debug\net8.0\MotoLibrary.dll
+D:\My files\3 course\ООП\Code\Course\MotoLibrary\bin\Debug\net8.0\MotoLibrary.pdb
+D:\My files\3 course\ООП\Code\Course\MotoLibrary\obj\Debug\net8.0\MotoLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\My files\3 course\ООП\Code\Course\MotoLibrary\obj\Debug\net8.0\MotoLibrary.AssemblyInfoInputs.cache
+D:\My files\3 course\ООП\Code\Course\MotoLibrary\obj\Debug\net8.0\MotoLibrary.AssemblyInfo.cs
+D:\My files\3 course\ООП\Code\Course\MotoLibrary\obj\Debug\net8.0\MotoLibrary.csproj.CoreCompileInputs.cache
+D:\My files\3 course\ООП\Code\Course\MotoLibrary\obj\Debug\net8.0\MotoLibrary.sourcelink.json
+D:\My files\3 course\ООП\Code\Course\MotoLibrary\obj\Debug\net8.0\MotoLibrary.dll
+D:\My files\3 course\ООП\Code\Course\MotoLibrary\obj\Debug\net8.0\refint\MotoLibrary.dll
+D:\My files\3 course\ООП\Code\Course\MotoLibrary\obj\Debug\net8.0\MotoLibrary.pdb
+D:\My files\3 course\ООП\Code\Course\MotoLibrary\obj\Debug\net8.0\ref\MotoLibrary.dll

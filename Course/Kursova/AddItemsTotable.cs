@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Kursova.Models;
 
 namespace Kursova
 {
@@ -16,6 +17,7 @@ namespace Kursova
         public AddItemsTotable()
         {
             InitializeComponent();
+
         }
         private void ConfigureForm()
         {
@@ -29,7 +31,9 @@ namespace Kursova
         {
             if (Data == null) return;
 
-            brendTextBox.Text = Data.brand;
+            brendTextBox.Text = Data.MotoBrand.MotoOwner.Name;
+            AddressTextBox.Text = Data.MotoBrand.MotoOwner.Address;
+            countryTextBox.Text = Data.MotoBrand.Country;
             modelTextBox.Text = Data.model;
             yearPicker.Value = new DateTime(Data.year, 1, 1);
             priceTextBox.Text = Data.price.ToString();
@@ -53,8 +57,14 @@ namespace Kursova
         }
         private SportMotorcycle CreateSportMotorcycle()
         {
+            Owner own = new Owner
+            {
+                Name = brendTextBox.Text,
+                Address = AddressTextBox.Text
+            };
             return new SportMotorcycle(
-                brendTextBox.Text,
+                own,
+                countryTextBox.Text,
                 modelTextBox.Text,
                 Convert.ToInt16(yearPicker.Value.Year),
                 Convert.ToDouble(priceTextBox.Text),
@@ -65,14 +75,20 @@ namespace Kursova
         }
         private TouringMotorcycle CreateTouringMotorcycle()
         {
+            Owner own = new Owner
+            {
+                Name = brendTextBox.Text,
+                Address = AddressTextBox.Text
+            };
             return new TouringMotorcycle(
-                brendTextBox.Text,
+                own,
+                countryTextBox.Text,
                 modelTextBox.Text,
                 Convert.ToInt16(yearPicker.Value.Year),
                 Convert.ToDouble(priceTextBox.Text),
                 Convert.ToInt32(capacityEngTextBox.Text),
                 Convert.ToInt32(masTextBox.Text),
-                Convert.ToInt32(addperTextBox.Text)
+                Convert.ToDouble(addperTextBox.Text)
             );
         }
         private void AllowOnlyLetters(KeyPressEventArgs e)
@@ -143,10 +159,6 @@ namespace Kursova
         {
             AllowOnlyDigits(e);
         }
-        private void addperTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            AllowOnlyDigits(e);
-        }
 
         private void AddItemsTotable_Load_1(object sender, EventArgs e)
         {
@@ -162,7 +174,8 @@ namespace Kursova
                 string.IsNullOrWhiteSpace(priceTextBox.Text) ||
                 string.IsNullOrWhiteSpace(capacityEngTextBox.Text) ||
                 string.IsNullOrWhiteSpace(masTextBox.Text) ||
-                string.IsNullOrWhiteSpace(addperTextBox.Text))
+                string.IsNullOrWhiteSpace(addperTextBox.Text) ||
+                string.IsNullOrWhiteSpace(countryTextBox.Text))
             {
                 MessageBox.Show("Будь ласка, заповніть всі поля.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -186,13 +199,27 @@ namespace Kursova
                 return false;
             }
 
-            if (!int.TryParse(addperTextBox.Text, out int addperValue))
+            if (!double.TryParse(addperTextBox.Text, out double addperValue))
             {
                 MessageBox.Show("Невірний формат специфічного параметра. Введіть коректне ціле число.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
 
             return true;
+        }
+
+        private void AddItemsTotable_Enter(object sender, EventArgs e)
+        {
+            addTableButton_Click_1(sender, e);
+        }
+
+        private void addperTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                addTableButton_Click_1(sender, e);
+            }
         }
     }
 }

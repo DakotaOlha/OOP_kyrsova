@@ -30,7 +30,9 @@
         {
             motoDataGrid = new DataGridView();
             IdMoto = new DataGridViewTextBoxColumn();
-            Brend = new DataGridViewTextBoxColumn();
+            Owner_name = new DataGridViewTextBoxColumn();
+            Address = new DataGridViewTextBoxColumn();
+            Country = new DataGridViewTextBoxColumn();
             Model = new DataGridViewTextBoxColumn();
             Year = new DataGridViewTextBoxColumn();
             Price = new DataGridViewTextBoxColumn();
@@ -45,6 +47,7 @@
             видалитиToolStripMenuItem = new ToolStripMenuItem();
             очиститиToolStripMenuItem = new ToolStripMenuItem();
             вихідToolStripMenuItem = new ToolStripMenuItem();
+            чиРікЄТеперішнімToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)motoDataGrid).BeginInit();
             menuStrip1.SuspendLayout();
             SuspendLayout();
@@ -52,7 +55,7 @@
             // motoDataGrid
             // 
             motoDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            motoDataGrid.Columns.AddRange(new DataGridViewColumn[] { IdMoto, Brend, Model, Year, Price, Eng_Capacity, Mas, addper });
+            motoDataGrid.Columns.AddRange(new DataGridViewColumn[] { IdMoto, Owner_name, Address, Country, Model, Year, Price, Eng_Capacity, Mas, addper });
             motoDataGrid.EditMode = DataGridViewEditMode.EditProgrammatically;
             motoDataGrid.Location = new Point(48, 66);
             motoDataGrid.Name = "motoDataGrid";
@@ -69,12 +72,26 @@
             IdMoto.Name = "IdMoto";
             IdMoto.Width = 150;
             // 
-            // Brend
+            // Owner_name
             // 
-            Brend.HeaderText = "Бренд";
-            Brend.MinimumWidth = 8;
-            Brend.Name = "Brend";
-            Brend.Width = 150;
+            Owner_name.HeaderText = "Власник бренду";
+            Owner_name.MinimumWidth = 8;
+            Owner_name.Name = "Owner_name";
+            Owner_name.Width = 150;
+            // 
+            // Address
+            // 
+            Address.HeaderText = "Адрес";
+            Address.MinimumWidth = 8;
+            Address.Name = "Address";
+            Address.Width = 150;
+            // 
+            // Country
+            // 
+            Country.HeaderText = "Країна";
+            Country.MinimumWidth = 8;
+            Country.Name = "Country";
+            Country.Width = 150;
             // 
             // Model
             // 
@@ -121,7 +138,7 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(24, 24);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, додатиToolStripMenuItem, видалитиToolStripMenuItem, очиститиToolStripMenuItem, вихідToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { файлToolStripMenuItem, додатиToolStripMenuItem, видалитиToolStripMenuItem, очиститиToolStripMenuItem, вихідToolStripMenuItem, чиРікЄТеперішнімToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1301, 33);
@@ -177,6 +194,13 @@
             вихідToolStripMenuItem.Text = "Вихід";
             вихідToolStripMenuItem.Click += вихідToolStripMenuItem_Click_1;
             // 
+            // чиРікЄТеперішнімToolStripMenuItem
+            // 
+            чиРікЄТеперішнімToolStripMenuItem.Name = "чиРікЄТеперішнімToolStripMenuItem";
+            чиРікЄТеперішнімToolStripMenuItem.Size = new Size(188, 29);
+            чиРікЄТеперішнімToolStripMenuItem.Text = "Чи рік є теперішнім";
+            чиРікЄТеперішнімToolStripMenuItem.Click += чиРікЄТеперішнімToolStripMenuItem_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -205,14 +229,17 @@
         private ToolStripMenuItem відкритиЯкToolStripMenuItem;
         private ToolStripMenuItem додатиToolStripMenuItem;
         private ToolStripMenuItem очиститиToolStripMenuItem;
+        private ToolStripMenuItem видалитиToolStripMenuItem;
         private DataGridViewTextBoxColumn IdMoto;
-        private DataGridViewTextBoxColumn Brend;
+        private DataGridViewTextBoxColumn Owner_name;
+        private DataGridViewTextBoxColumn Address;
+        private DataGridViewTextBoxColumn Country;
         private DataGridViewTextBoxColumn Model;
         private DataGridViewTextBoxColumn Year;
         private DataGridViewTextBoxColumn Price;
         private DataGridViewTextBoxColumn Eng_Capacity;
         private DataGridViewTextBoxColumn Mas;
         private DataGridViewTextBoxColumn addper;
-        private ToolStripMenuItem видалитиToolStripMenuItem;
+        private ToolStripMenuItem чиРікЄТеперішнімToolStripMenuItem;
     }
 }
